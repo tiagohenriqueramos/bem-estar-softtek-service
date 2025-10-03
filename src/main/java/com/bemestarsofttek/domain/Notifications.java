@@ -2,11 +2,14 @@ package com.bemestarsofttek.domain;
 
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Map;
-
+@Document
 public class Notifications {
+    @Id
     private ObjectId id;
     private String employeeId;
     private String notificationId;

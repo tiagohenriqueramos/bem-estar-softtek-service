@@ -1,13 +1,15 @@
 package com.bemestarsofttek.domain;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
+@Document
 public class EmployeeProfiles {
-
+    @Id
     private ObjectId id; // ObjectId como String
     private String employeeId; // emp_001, emp_002, etc.
     private PersonalInfo personalInfo;
