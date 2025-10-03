@@ -1,17 +1,12 @@
 package com.bemestarsofttek.controller;
 
 import com.bemestarsofttek.domain.EmployeeProfiles;
-import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.service.EmployeeProfilesService;
-import com.bemestarsofttek.service.MoodEntryService;
 import jakarta.validation.Valid;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -27,13 +22,13 @@ public class EmployeeProfilesController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<EmployeeProfiles> listar(Pageable pageable) {
-        return employeeProfilesService.listar(pageable);
+    public List<EmployeeProfiles> listar() {
+        return employeeProfilesService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public EmployeeProfiles buscarPorId(@PathVariable ObjectId id){
+    public EmployeeProfiles buscarPorId(@PathVariable ObjectId id) {
         return employeeProfilesService.buscarPorId(id);
     }
 

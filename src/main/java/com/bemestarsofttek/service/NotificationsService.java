@@ -3,9 +3,9 @@ package com.bemestarsofttek.service;
 import com.bemestarsofttek.domain.Notifications;
 import com.bemestarsofttek.repository.NotificationsRepository;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class NotificationsService {
@@ -27,8 +27,8 @@ public class NotificationsService {
                 .orElseThrow(() -> new RuntimeException("Analytics não encontrado"));
     }
 
-    public Page<Notifications> listar(Pageable pageable) {
-        return notificationsRepository.findAll(pageable);
+    public List<Notifications> listar() {
+        return notificationsRepository.findAll();
     }
 
     public void deleteById(ObjectId id) {

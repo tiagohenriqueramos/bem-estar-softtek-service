@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/resources")
 public class ResourcesController {
@@ -23,8 +25,8 @@ public class ResourcesController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<Resources> listar(Pageable pageable) {
-        return resourcesService.listar(pageable);
+    public List<Resources> listar(Pageable pageable) {
+        return resourcesService.listar();
     }
 
     @GetMapping("/listar/{id}")

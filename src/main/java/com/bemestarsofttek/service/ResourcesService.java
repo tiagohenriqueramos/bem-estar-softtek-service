@@ -3,9 +3,9 @@ package com.bemestarsofttek.service;
 import com.bemestarsofttek.domain.Resources;
 import com.bemestarsofttek.repository.ResourcesRepository;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ResourcesService {
@@ -27,8 +27,8 @@ public class ResourcesService {
                 .orElseThrow(() -> new RuntimeException("Analytics não encontrado"));
     }
 
-    public Page<Resources> listar(Pageable pageable) {
-        return resourcesRepository.findAll(pageable);
+    public List<Resources> listar() {
+        return resourcesRepository.findAll();
     }
 
     public void deleteById(ObjectId id) {

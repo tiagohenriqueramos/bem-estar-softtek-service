@@ -1,17 +1,12 @@
 package com.bemestarsofttek.controller;
 
 import com.bemestarsofttek.domain.Analytics;
-import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.service.AnalyticsService;
 import jakarta.validation.Valid;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 
@@ -28,13 +23,13 @@ public class AnalysticsController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<Analytics> listar(Pageable pageable) {
-        return analyticsService.listar(pageable);
+    public List<Analytics> listar() {
+        return analyticsService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Analytics buscarPorId(@PathVariable ObjectId id){
+    public Analytics buscarPorId(@PathVariable ObjectId id) {
         return analyticsService.buscarPorId(id);
     }
 

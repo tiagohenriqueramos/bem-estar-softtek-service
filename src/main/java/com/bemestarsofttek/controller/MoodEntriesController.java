@@ -4,8 +4,6 @@ import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.service.MoodEntryService;
 import jakarta.validation.Valid;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,13 +23,13 @@ public class MoodEntriesController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<MoodEntries> listar(Pageable pageable) {
-        return moodEntryService.listar(pageable);
+    public List<MoodEntries> listar() {
+        return moodEntryService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public MoodEntries buscarPorId(@PathVariable ObjectId id){
+    public MoodEntries buscarPorId(@PathVariable ObjectId id) {
         return moodEntryService.buscarPorId(id);
     }
 

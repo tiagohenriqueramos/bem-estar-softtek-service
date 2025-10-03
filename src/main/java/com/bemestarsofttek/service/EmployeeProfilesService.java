@@ -3,9 +3,9 @@ package com.bemestarsofttek.service;
 import com.bemestarsofttek.domain.EmployeeProfiles;
 import com.bemestarsofttek.repository.EmployeeProfilesRepository;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmployeeProfilesService {
@@ -27,8 +27,8 @@ public class EmployeeProfilesService {
                 .orElseThrow(() -> new RuntimeException("Analytics não encontrado"));
     }
 
-    public Page<EmployeeProfiles> listar(Pageable pageable) {
-        return employeeProfilesRepository.findAll(pageable);
+    public List<EmployeeProfiles> listar() {
+        return employeeProfilesRepository.findAll();
     }
 
     public void deleteById(ObjectId id) {

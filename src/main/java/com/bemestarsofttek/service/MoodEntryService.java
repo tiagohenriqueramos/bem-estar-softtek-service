@@ -3,8 +3,6 @@ package com.bemestarsofttek.service;
 import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.repository.MoodEntryRespository;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,6 +17,7 @@ public class MoodEntryService {
         this.moodEntryRespository = moodEntryRespository;
 
     }
+
     public MoodEntries salvar(MoodEntries moodEntry) {
         return moodEntryRespository.save(moodEntry);
     }
@@ -28,8 +27,8 @@ public class MoodEntryService {
                 .orElseThrow(() -> new RuntimeException("MoodEntry não encontrado"));
     }
 
-    public Page<MoodEntries> listar(Pageable pageable) {
-        return moodEntryRespository.findAll(pageable);
+    public List<MoodEntries> listar() {
+        return moodEntryRespository.findAll();
     }
 
     public void deleteById(ObjectId id) {

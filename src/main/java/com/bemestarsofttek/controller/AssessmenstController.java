@@ -1,15 +1,13 @@
 package com.bemestarsofttek.controller;
 
-import com.bemestarsofttek.domain.Analytics;
 import com.bemestarsofttek.domain.Assessments;
-import com.bemestarsofttek.service.AnalyticsService;
 import com.bemestarsofttek.service.AssessmentsService;
 import jakarta.validation.Valid;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -25,13 +23,13 @@ public class AssessmenstController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<Assessments> listar(Pageable pageable) {
-        return assessmentsService.listar(pageable);
+    public List<Assessments> listar() {
+        return assessmentsService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Assessments buscarPorId(@PathVariable ObjectId id){
+    public Assessments buscarPorId(@PathVariable ObjectId id) {
         return assessmentsService.buscarPorId(id);
     }
 

@@ -1,17 +1,12 @@
 package com.bemestarsofttek.controller;
 
-import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.domain.Notifications;
-import com.bemestarsofttek.service.MoodEntryService;
 import com.bemestarsofttek.service.NotificationsService;
 import jakarta.validation.Valid;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,13 +21,13 @@ public class NotificationsController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public Page<Notifications> listar(Pageable pageable) {
-        return notificationsService.listar(pageable);
+    public List<Notifications> listar() {
+        return notificationsService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Notifications buscarPorId(@PathVariable ObjectId id){
+    public Notifications buscarPorId(@PathVariable ObjectId id) {
         return notificationsService.buscarPorId(id);
     }
 
