@@ -42,15 +42,15 @@ public class MoodEntriesController {
 
     @PostMapping("/salvar")
     @ResponseStatus(HttpStatus.CREATED)
-    public MoodEntries salvar(@RequestBody @Valid MoodEntries contatoRequest) {
-        return moodEntryService.salvar(contatoRequest);
+    public MoodEntries salvar(@RequestBody @Valid MoodEntries moodEntries) {
+        return moodEntryService.salvar(moodEntries);
     }
 
 
     @PutMapping("/atualizar")
     @ResponseStatus(HttpStatus.OK)
-    public MoodEntries atualizar(@RequestBody MoodEntries contato) {
-        return moodEntryService.atualizar(contato);
+    public MoodEntries atualizar(@RequestBody MoodEntries moodEntries) {
+        return moodEntryService.atualizar(moodEntries);
     }
 
     @DeleteMapping("/deletar/{id}")
