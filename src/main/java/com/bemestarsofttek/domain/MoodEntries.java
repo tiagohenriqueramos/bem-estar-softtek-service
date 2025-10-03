@@ -1,7 +1,7 @@
 package com.bemestarsofttek.domain;
 
 
-import com.bemestarsofttek.exception.MoodEntryValidationException;
+import com.bemestarsofttek.exception.ValidationException;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -33,14 +33,14 @@ public class MoodEntries {
     public MoodEntries(ObjectId id, String employeeId, LocalDate date, String emoji, String mood, String feeling,
                        String workload, String symptoms, int bossRelationship, int colleaguesRelationship,
                        String observations, LocalDate createdAt, LocalDate updatedAt, Object metadata) {
-        if (employeeId == null || employeeId.isEmpty()) throw new MoodEntryValidationException("employeeId não pode ser nulo ou vazio");
-        if (date == null) throw new MoodEntryValidationException("date não pode ser nulo");
-        if (emoji == null || emoji.isEmpty()) throw new MoodEntryValidationException("emoji não pode ser nulo ou vazio");
-        if (mood == null || mood.isEmpty()) throw new MoodEntryValidationException("mood não pode ser nulo ou vazio");
-        if (feeling == null || feeling.isEmpty()) throw new MoodEntryValidationException("feeling não pode ser nulo ou vazio");
-        if (workload == null || workload.isEmpty()) throw new MoodEntryValidationException("workload não pode ser nulo ou vazio");
-        if (symptoms == null) throw new MoodEntryValidationException("symptoms não pode ser nulo");
-        if (observations == null) throw new MoodEntryValidationException("observations não pode ser nulo");
+        if (employeeId == null || employeeId.isEmpty()) throw new ValidationException("employeeId não pode ser nulo ou vazio");
+        if (date == null) throw new ValidationException("date não pode ser nulo");
+        if (emoji == null || emoji.isEmpty()) throw new ValidationException("emoji não pode ser nulo ou vazio");
+        if (mood == null || mood.isEmpty()) throw new ValidationException("mood não pode ser nulo ou vazio");
+        if (feeling == null || feeling.isEmpty()) throw new ValidationException("feeling não pode ser nulo ou vazio");
+        if (workload == null || workload.isEmpty()) throw new ValidationException("workload não pode ser nulo ou vazio");
+        if (symptoms == null) throw new ValidationException("symptoms não pode ser nulo");
+        if (observations == null) throw new ValidationException("observations não pode ser nulo");
 
         this.id = id;
         this.employeeId = employeeId;
