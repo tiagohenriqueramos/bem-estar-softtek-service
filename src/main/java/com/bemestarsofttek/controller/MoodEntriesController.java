@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/mood-entries")
 public class MoodEntriesController {
 
     private final MoodEntryService moodEntryService;

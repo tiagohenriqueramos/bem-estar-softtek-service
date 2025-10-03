@@ -1,5 +1,6 @@
 package com.bemestarsofttek.domain;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +10,7 @@ import java.util.Map;
 @Document
 public class Resources {
     @Id
-    private String id; // ObjectId como String
+    private ObjectId id; // ObjectId como String
     private String title;              // Título do recurso
     private String description;        // Descrição breve
     private String category;           // Respiração, Exercícios, Mindfulness, etc.
@@ -43,8 +44,8 @@ public class Resources {
     }
 
     // -------- Getters & Setters --------
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public ObjectId getId() { return id; }
+    public void setId(ObjectId id) { this.id = id; }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
