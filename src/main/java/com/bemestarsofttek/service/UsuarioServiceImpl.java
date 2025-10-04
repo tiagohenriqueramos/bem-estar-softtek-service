@@ -3,7 +3,7 @@ package com.bemestarsofttek.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 import com.bemestarsofttek.exception.ValidationException;
 import com.bemestarsofttek.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

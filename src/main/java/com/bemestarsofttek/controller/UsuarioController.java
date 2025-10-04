@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.bemestarsofttek.config.security.JWTTokenService;
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 import com.bemestarsofttek.exception.ValidationException;
 import com.bemestarsofttek.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;

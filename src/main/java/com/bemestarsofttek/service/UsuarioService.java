@@ -1,6 +1,6 @@
 package com.bemestarsofttek.service;
 
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 
 import java.util.List;
 

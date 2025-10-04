@@ -25,7 +25,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.Arrays;
 
-@AllArgsConstructor
+
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
@@ -33,6 +33,10 @@ public class WebSecurityConfig {
     private final JWTTokenService tokenService;
     private final UsuarioRepository usuarioRepository;
 
+    public WebSecurityConfig(JWTTokenService tokenService, UsuarioRepository usuarioRepository) {
+        this.tokenService = tokenService;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

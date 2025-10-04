@@ -1,6 +1,6 @@
 package com.bemestarsofttek.service;
 
-import com.bemestarsofttek.domain.MoodEntries;
+import com.bemestarsofttek.domain.MoodEntry;
 import com.bemestarsofttek.repository.MoodEntryRespository;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,16 @@ public class MoodEntryService {
         this.moodEntryRespository = moodEntryRespository;
 
     }
-
-    public MoodEntries salvar(MoodEntries moodEntry) {
+    public MoodEntry salvar(MoodEntry moodEntry) {
         return moodEntryRespository.save(moodEntry);
     }
 
-    public MoodEntries buscarPorId(ObjectId id) {
+    public MoodEntry buscarPorId(ObjectId id) {
         return moodEntryRespository.findById(id)
                 .orElseThrow(() -> new RuntimeException("MoodEntry não encontrado"));
     }
 
-    public List<MoodEntries> listar() {
+    public List<MoodEntry> listar() {
         return moodEntryRespository.findAll();
     }
 
@@ -39,7 +38,7 @@ public class MoodEntryService {
         }
     }
 
-    public MoodEntries atualizar(MoodEntries moodEntry) {
+    public MoodEntry atualizar(MoodEntry moodEntry) {
         if (moodEntryRespository.existsById(moodEntry.getId())) {
             return moodEntryRespository.save(moodEntry);
         } else {
@@ -47,7 +46,7 @@ public class MoodEntryService {
         }
     }
 
-    public List<MoodEntries> listarPorPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
+    public List<MoodEntry> listarPorPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
         return moodEntryRespository.findByDateBetween(dataInicial, dataFinal);
     }
 }

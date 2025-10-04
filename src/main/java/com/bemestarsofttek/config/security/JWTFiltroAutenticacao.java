@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.Optional;
 
 
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 import com.bemestarsofttek.repository.UsuarioRepository;
 
-import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -18,12 +17,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@AllArgsConstructor
 @Component
 public class JWTFiltroAutenticacao extends OncePerRequestFilter {
 
     private final JWTTokenService jwtTokenService;
     private final UsuarioRepository usuarioRepository;
+
+    public JWTFiltroAutenticacao(JWTTokenService jwtTokenService, UsuarioRepository usuarioRepository) {
+        this.jwtTokenService = jwtTokenService;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

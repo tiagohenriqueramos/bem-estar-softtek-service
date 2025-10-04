@@ -1,18 +1,16 @@
-package com.bemestarsofttek.entities;
+package com.bemestarsofttek.domain;
 
 
 
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class LoginForm {
 
@@ -26,4 +24,24 @@ public class LoginForm {
         return new UsernamePasswordAuthenticationToken(this.email, this.senha);
     }
 
+    public LoginForm(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

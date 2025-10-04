@@ -4,7 +4,7 @@ package com.bemestarsofttek.controller;
 
 import com.bemestarsofttek.config.security.JWTTokenService;
 import com.bemestarsofttek.dto.TokenDTO;
-import com.bemestarsofttek.entities.LoginForm;
+import com.bemestarsofttek.domain.LoginForm;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-
-import lombok.AllArgsConstructor;
-
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/usuarios/autenticar")
 @CrossOrigin(origins = "*")
-@AllArgsConstructor
 public class LoginController {
 
     private final AuthenticationManager authManager;
     private final JWTTokenService tokenService;
+
+    public LoginController(AuthenticationManager authManager, JWTTokenService tokenService) {
+        this.authManager = authManager;
+        this.tokenService = tokenService;
+    }
 
     @PostMapping
     public ResponseEntity<Object> autenticar(@RequestBody @Valid LoginForm form){

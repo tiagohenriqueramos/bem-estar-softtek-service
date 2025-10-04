@@ -1,7 +1,7 @@
 package com.bemestarsofttek.repository;
 
 
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

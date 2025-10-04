@@ -1,6 +1,6 @@
 package com.bemestarsofttek.service;
 
-import com.bemestarsofttek.entities.Usuario;
+import com.bemestarsofttek.domain.Usuario;
 import com.bemestarsofttek.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,6 +1,6 @@
 package com.bemestarsofttek.controller;
 
-import com.bemestarsofttek.domain.MoodEntries;
+import com.bemestarsofttek.domain.MoodEntry;
 import com.bemestarsofttek.service.MoodEntryService;
 
 import org.bson.types.ObjectId;
@@ -24,31 +24,32 @@ public class MoodEntriesController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public List<MoodEntries> listar() {
+    public List<MoodEntry> listar() {
         return moodEntryService.listar();
     }
 
     @GetMapping("/listar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public MoodEntries buscarPorId(@PathVariable ObjectId id) {
+    public MoodEntry buscarPorId(@PathVariable ObjectId id) {
         return moodEntryService.buscarPorId(id);
     }
 
     @GetMapping(value = "/listar-por-data", params = {"dataInicio", "dataFinal"})
-    public List<MoodEntries> listarPorData(@RequestParam LocalDate dataInicial, @RequestParam LocalDate dataFinal) {
+    public List<MoodEntry> listarPorData(@RequestParam LocalDate dataInicial, @RequestParam LocalDate dataFinal) {
         return moodEntryService.listarPorPeriodo(dataInicial, dataFinal);
     }
 
     @PostMapping("/salvar")
     @ResponseStatus(HttpStatus.CREATED)
-    public MoodEntries salvar(@RequestBody @Valid MoodEntries moodEntries) {
+    public MoodEntry salvar(@RequestBody @Valid MoodEntry moodEntries) {
+        System.out.println("Recebendo requisição para salvar MoodEntries: " + moodEntries);
         return moodEntryService.salvar(moodEntries);
     }
 
 
     @PutMapping("/atualizar")
     @ResponseStatus(HttpStatus.OK)
-    public MoodEntries atualizar(@RequestBody MoodEntries moodEntries) {
+    public MoodEntry atualizar(@RequestBody MoodEntry moodEntries) {
         return moodEntryService.atualizar(moodEntries);
     }
 
