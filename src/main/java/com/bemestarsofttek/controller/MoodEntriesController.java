@@ -2,11 +2,12 @@ package com.bemestarsofttek.controller;
 
 import com.bemestarsofttek.domain.MoodEntries;
 import com.bemestarsofttek.service.MoodEntryService;
-import jakarta.validation.Valid;
+
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 

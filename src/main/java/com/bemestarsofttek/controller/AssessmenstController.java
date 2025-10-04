@@ -2,11 +2,12 @@ package com.bemestarsofttek.controller;
 
 import com.bemestarsofttek.domain.Assessments;
 import com.bemestarsofttek.service.AssessmentsService;
-import jakarta.validation.Valid;
+
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
